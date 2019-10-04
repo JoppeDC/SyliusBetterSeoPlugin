@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+    mysql:
+        image: yappabe/mysql:5.7
+        environment:
+            DNSDOCK_ALIAS: mysql.dev.docker.webfolks.be
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_USER: admin
+            MYSQL_PASSWORD: dev
+            MYSQL_DATABASE: dev
+volumes:
+    mysql-data:
