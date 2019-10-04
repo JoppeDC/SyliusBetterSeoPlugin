@@ -1,0 +1,16 @@
+sylius_product:
+    resources:
+        product:
+            classes:
+                model: JoppeDc\SyliusBetterSeoPlugin\Entity\Product
+
+
+sylius_resource:
+    resources:
+        sylius_better_seo_plugin.seo:
+            driver: doctrine/orm
+            classes:
+                model: JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeo
+            translation:
+                classes:
+                    model: JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslation

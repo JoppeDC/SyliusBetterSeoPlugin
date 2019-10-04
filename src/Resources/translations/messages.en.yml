@@ -1,0 +1,12 @@
+app:
+    ui:
+        twitter_creator_handle: Twitter Creator Handle
+        twitter_description: Twitter Description
+        twitter_title: Twitter Title
+        og_url: OG Url
+        og_description: OG Description
+        og_title: OG Title
+        meta_keywords: Meta Keywords
+        meta_description: Meta Description
+        page_title: Page Title
+        seo: SEO

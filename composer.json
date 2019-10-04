@@ -1,8 +1,8 @@
 {
-    "name": "sylius/plugin-skeleton",
+    "name": "joppedc/sylius-better-seo-plugin",
     "type": "sylius-plugin",
     "keywords": ["sylius", "sylius-plugin"],
-    "description": "Acme example plugin for Sylius.",
+    "description": "Support for SEO metadata on products",
     "license": "MIT",
     "require": {
         "php": "^7.2",
@@ -44,8 +44,8 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Acme\\SyliusExamplePlugin\\": "src/",
-            "Tests\\Acme\\SyliusExamplePlugin\\": "tests/"
+            "JoppeDc\\SyliusBetterSeoPlugin\\": "src/",
+            "Tests\\JoppeDc\\SyliusBetterSeoPlugin\\": "tests/"
         }
     },
     "autoload-dev": {

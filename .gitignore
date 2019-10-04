@@ -9,3 +9,4 @@
 
 /behat.yml
 /phpspec.yml
+docker-compose.yml

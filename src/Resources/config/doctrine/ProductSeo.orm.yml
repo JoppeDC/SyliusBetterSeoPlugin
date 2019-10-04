@@ -1,0 +1,9 @@
+JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeo:
+    type: entity
+    table: joppedc_product_seo
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO

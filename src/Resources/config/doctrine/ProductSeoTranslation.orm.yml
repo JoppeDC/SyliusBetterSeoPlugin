@@ -1,0 +1,59 @@
+JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslation:
+    type: entity
+    table: joppedc_product_seo_translation
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        pageTitle:
+            column: seo_page_title
+            type: string
+            nullable: true
+            options:
+                default: ''
+        ogTitle:
+            column: seo_og_title
+            type: string
+            nullable: true
+            options:
+                default: ''
+        ogDescription:
+            column: seo_og_description
+            type: string
+            nullable: true
+            options:
+                default: ''
+        ogType:
+            column: seo_og_type
+            type: string
+            nullable: true
+            options:
+                default: 'website'
+        ##todo: ogImage
+        twitterCard:
+            column: seo_twitter_card
+            type: string
+            nullable: true
+            options:
+                default: 'summary'
+        twitterTitle:
+            column: seo_twitter_title
+            type: string
+            nullable: true
+            options:
+                default: ''
+        twitterDescription:
+            column: seo_twitter_description
+            type: string
+            nullable: true
+            options:
+                default: ''
+        twitterSite:
+            column: seo_twitter_site
+            type: string
+            nullable: true
+            options:
+                default: ''

@@ -1,0 +1,40 @@
+{% macro seoTranslationForm(translations) %}
+    {% import '@SyliusUi/Macro/flags.html.twig' as flags %}
+
+    <div class="ui styled fluid accordion">
+        {% for locale, translationForm in translations %}
+            <div data-locale="{{ locale }}">
+                <div class="title{% if 0 == loop.index0 %} active{% endif %}">
+                    <i class="dropdown icon"></i>
+                    {{ flags.fromLocaleCode(locale) }} {{ locale|sylius_locale_name }}
+                </div>
+                <div class="ui content{% if 0 == loop.index0 %} active{% endif %}">
+                    <div class="ui column stackable grid">
+                      <div class="column">
+                        <div class="ui segment">
+                          {{form_row(translationForm.pageTitle)}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ui two column stackable grid">
+                      <div class="column">
+                        <div class="ui segment">
+                          {{form_row(translationForm.ogType)}}
+                          {{form_row(translationForm.ogTitle)}}
+                          {{form_row(translationForm.ogDescription)}}
+                        </div>
+                      </div>
+                      <div class="column">
+                        <div class="ui segment">
+                          {{form_row(translationForm.twitterCard)}}
+                          {{form_row(translationForm.twitterTitle)}}
+                          {{form_row(translationForm.twitterDescription)}}
+                          {{form_row(translationForm.twitterSite)}}
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endmacro %}

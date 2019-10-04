@@ -1,0 +1,10 @@
+JoppeDc\SyliusBetterSeoPlugin\Entity\Product:
+    type: entity
+    table: sylius_product
+    oneToOne:
+        seo:
+            targetEntity: ProductSeo
+            joinColumn:
+                name: seo_id
+                referencedColumnName: id
+            cascade: [ all ]

@@ -1,0 +1,28 @@
+services:
+    JoppeDc\SyliusBetterSeoPlugin\Form\ProductTypeExtension:
+        tags:
+            - { name: form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductType, priority: -5 }
+
+    app.listener.admin.product.form.menu_builder:
+        class: JoppeDc\SyliusBetterSeoPlugin\Menu\AdminProductFormMenuListener
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.product.form, method: addItems }
+
+    app.product_seo.form.type:
+        class: JoppeDc\SyliusBetterSeoPlugin\Form\Type\SeoType
+        tags:
+            - { name: form.type }
+        arguments: ['JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeo']
+
+    app.product_seo_translation.form.type:
+        class: JoppeDc\SyliusBetterSeoPlugin\Form\Type\SeoTranslationType
+        tags:
+            - { name: form.type }
+        arguments: ['JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslation']
+
+    app.block_event_listener.productpage.layout.head:
+        class: Sylius\Bundle\UiBundle\Block\BlockEventListener
+        arguments:
+            - '@@SyliusBetterSeoPlugin/_seo_block.html.twig'
+        tags:
+            - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.product.show.before_images, method: onBlockEvent }

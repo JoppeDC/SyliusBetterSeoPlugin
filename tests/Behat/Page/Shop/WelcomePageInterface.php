@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Acme\SyliusExamplePlugin\Behat\Page\Shop;
+namespace Tests\JoppeDc\SyliusBetterSeoPlugin\Behat\Page\Shop;
 
 use FriendsOfBehat\PageObjectExtension\Page\SymfonyPageInterface;
 
