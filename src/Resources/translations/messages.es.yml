@@ -1,0 +1,12 @@
+app:
+    ui:
+        twitter_creator_handle: Usuario creador en Twitter
+        twitter_description: Descripción para Twitter
+        twitter_title: Título para Twitter
+        og_url: URL OG
+        og_description: Descripción OG
+        og_title: Título OG
+        meta_keywords: Palabras clave meta
+        meta_description: Descripción meta
+        page_title: Título de la página
+        seo: SEO
