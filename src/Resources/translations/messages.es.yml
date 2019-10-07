@@ -1,0 +1,11 @@
+app:
+    ui:
+        twitter_description: Descripción para Twitter
+        twitter_title: Título para Twitter
+        og_url: URL OG
+        og_description: Descripción OG
+        og_title: Título OG
+        page_title: Título de la página
+        seo: SEO
+        twitter_card: Tarjeta de Twitter
+        twitter_site: Sitio de Twittier
