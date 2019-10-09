@@ -12,6 +12,7 @@
 [![Build Status](https://scrutinizer-ci.com/g/JoppeDC/SyliusBetterSeoPlugin/badges/build.png?b=master)](https://scrutinizer-ci.com/g/JoppeDC/SyliusBetterSeoPlugin/build-status/master)
 
 </p>
+
 ## Local Development Test
 
 1. Clone the repo to a local folder
