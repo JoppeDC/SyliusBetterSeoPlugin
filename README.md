@@ -15,7 +15,10 @@
 
 ## Local Development Test
 
-1. Clone the repo to a local folder
+1. Clone the repo to a local folder and install composer dependencies using the following command:
+    ```
+    $ composer install
+    ```
 
 2. From the plugin root directory, run the following commands:
 
