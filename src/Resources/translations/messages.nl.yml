@@ -1,0 +1,11 @@
+app:
+    ui:
+        twitter_description: Twitter Beschrijving
+        twitter_title: Twitter Titel
+        twitter_card: Twitter Card
+        twitter_site: Twitter Site
+        og_url: OG Url
+        og_description: OG Beschrijving
+        og_title: OG Titel
+        page_title: Page Titel
+        seo: SEO
