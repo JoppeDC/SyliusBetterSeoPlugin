@@ -118,6 +118,16 @@ class ProductSeo implements TranslatableInterface, ResourceInterface
         $this->getTranslation()->setTwitterSite($twitterSite);
     }
 
+    public function getImage(): ?string
+    {
+        return $this->getTranslation()->getImage();
+    }
+
+    public function setImage(?string $image): void
+    {
+        $this->getTranslation()->setImage($image);
+    }
+
     public function getId()
     {
         return $this->id;

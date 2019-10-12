@@ -57,3 +57,9 @@ JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslation:
             nullable: true
             options:
                 default: ''
+        image:
+            column: image
+            type: string
+            nullable: true
+            options:
+                default: ''

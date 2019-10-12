@@ -55,6 +55,11 @@ class ProductSeoTranslation extends AbstractTranslation implements ResourceInter
      */
     private $twitterCard;
 
+    /**
+     * @var string
+     */
+    private $image;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -143,5 +148,15 @@ class ProductSeoTranslation extends AbstractTranslation implements ResourceInter
     public function setTwitterCard(?string $twitterCard): void
     {
         $this->twitterCard = $twitterCard;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): void
+    {
+        $this->image = $image;
     }
 }

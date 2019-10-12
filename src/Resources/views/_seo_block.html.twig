@@ -11,6 +11,21 @@
   {% if product.seo %}
   {% set seo = product.seo %}
 
+  {% if product.imagesByType('main') is not empty %}
+  {% set source_path = product.imagesByType('main').first.path %}
+  {% set original_path = source_path|imagine_filter('sylius_shop_product_original') %}
+  {% set imagePath = source_path|imagine_filter(filter|default('sylius_shop_product_large_thumbnail')) %}
+  {% elseif product.images.first %}
+  {% set source_path = product.images.first.path %}
+  {% set original_path = source_path|imagine_filter('sylius_shop_product_original') %}
+  {% set imagePath = source_path|imagine_filter(filter|default('sylius_shop_product_large_thumbnail')) %}
+  {% else %}
+  {% set original_path = '//placehold.it/400x300' %}
+  {% set imagePath = original_path %}
+  {% endif %}
+
+  {% set image = seo.image is not empty ? seo.image : imagePath %}
+
     {% if seo.pageTitle %}
       document.title = '{{ seo.pageTitle }}';
     {% endif %}
@@ -32,6 +47,10 @@
       appendHtml(document.head, '<meta name="twitter:description" content="{{ seo.twitterDescription }}" />');
     {% else %}
       appendHtml(document.head, '<meta name="twitter:description" content="{{ product.shortDescription }}" />');
+    {% endif %}
+    {% if image is not empty %}
+      appendHtml(document.head, '<meta name="twitter:image" content="{{ image }}" />');
+      appendHtml(document.head, '<meta name="og:image" content="{{ image }}" />');
     {% endif %}
 
     {% if seo.ogTitle is not empty %}
