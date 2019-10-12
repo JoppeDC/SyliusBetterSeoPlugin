@@ -13,15 +13,12 @@
 
   {% if product.imagesByType('main') is not empty %}
   {% set source_path = product.imagesByType('main').first.path %}
-  {% set original_path = source_path|imagine_filter('sylius_shop_product_original') %}
   {% set imagePath = source_path|imagine_filter(filter|default('sylius_shop_product_large_thumbnail')) %}
   {% elseif product.images.first %}
   {% set source_path = product.images.first.path %}
-  {% set original_path = source_path|imagine_filter('sylius_shop_product_original') %}
   {% set imagePath = source_path|imagine_filter(filter|default('sylius_shop_product_large_thumbnail')) %}
   {% else %}
-  {% set original_path = '//placehold.it/400x300' %}
-  {% set imagePath = original_path %}
+  {% set imagePath = null %}
   {% endif %}
 
   {% set image = seo.image is not empty ? seo.image : imagePath %}
