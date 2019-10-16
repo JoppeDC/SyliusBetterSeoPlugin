@@ -60,6 +60,12 @@ class SeoTranslationType extends AbstractResourceType
             'label' => 'app.ui.twitter_card',
             'required' => false,
         ]);
+
+        $builder->add('extraTags', TextareaType::class, [
+            'empty_data' => '',
+            'label' => 'app.ui.extra_tags',
+            'required' => false,
+        ]);
     }
 
     public function getBlockPrefix(): string

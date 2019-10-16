@@ -9,7 +9,7 @@
 
   {% set product = settings.product %}
   {% if product.seo %}
-  {% set seo = product.seo %}
+    {% set seo = product.seo %}
 
     {% if seo.pageTitle %}
       document.title = '{{ seo.pageTitle }}';
@@ -46,6 +46,10 @@
     {% endif %}
     {% if seo.ogDescription is not empty %}
       appendHtml(document.head, '<meta name="og:description" content="{{ seo.ogDescription }}" />');
+    {% endif %}
+
+    {% if seo.extraTags is not empty %}
+      {{ seo.extraTags }}
     {% endif %}
   {% endif %}
 

@@ -9,3 +9,4 @@ app:
         seo: SEO
         twitter_card: Twitter Card
         twitter_site: Twitter Site
+        extra_tags: Extra Raw Meta Tags
