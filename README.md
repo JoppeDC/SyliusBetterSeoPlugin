@@ -4,14 +4,17 @@
     </a>
 </p>
 
-<h1 align="center">WIP: Sylius Better SEO Plugin</h1>
-
-<p align="center">Adding SEO meta tags to product pages.
-
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/JoppeDC/SyliusBetterSeoPlugin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/JoppeDC/SyliusBetterSeoPlugin/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/JoppeDC/SyliusBetterSeoPlugin/badges/build.png?b=master)](https://scrutinizer-ci.com/g/JoppeDC/SyliusBetterSeoPlugin/build-status/master)
 
+<h1 align="center">WIP: Sylius Better SEO Plugin</h1>
+<h3>Take your webshop marketing to the next level!</h3>
+<p align="center">
+  Adding customizable SEO meta tags and Google structured data to product pages.
 </p>
+<img src="https://imgur.com/wTZtSDa.jpg" alt="Kitten" title="Google Preview" height="100" >
+<img src="https://imgur.com/wvLt5em.jpg" alt="Kitten" title="Facebook Preview" height="100" >
+<img src="https://imgur.com/hMNvu2C.jpg" alt="Kitten" title="Twitter Preview" height="100" >
 
 ## Local Development Test
 
