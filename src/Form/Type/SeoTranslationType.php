@@ -31,12 +31,6 @@ class SeoTranslationType extends AbstractResourceType
             'required' => false,
         ]);
 
-        $builder->add('ogType', TextareaType::class, [
-            'empty_data' => '',
-            'label' => 'app.ui.og_type',
-            'required' => false,
-        ]);
-
         $builder->add('twitterTitle', TextType::class, [
             'empty_data' => '',
             'label' => 'app.ui.twitter_title',
@@ -52,12 +46,6 @@ class SeoTranslationType extends AbstractResourceType
         $builder->add('twitterSite', TextType::class, [
             'empty_data' => '',
             'label' => 'app.ui.twitter_site',
-            'required' => false,
-        ]);
-
-        $builder->add('twitterCard', TextType::class, [
-            'empty_data' => '',
-            'label' => 'app.ui.twitter_card',
             'required' => false,
         ]);
 

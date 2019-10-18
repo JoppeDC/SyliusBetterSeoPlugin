@@ -100,16 +100,6 @@ class ProductSeoTranslation extends AbstractTranslation implements ResourceInter
         $this->ogDescription = $ogDescription;
     }
 
-    public function getOgType(): ?string
-    {
-        return $this->ogType;
-    }
-
-    public function setOgType(?string $ogType): void
-    {
-        $this->ogType = $ogType;
-    }
-
     public function getTwitterTitle(): ?string
     {
         return $this->twitterTitle;
@@ -138,16 +128,6 @@ class ProductSeoTranslation extends AbstractTranslation implements ResourceInter
     public function setTwitterSite(?string $twitterSite): void
     {
         $this->twitterSite = $twitterSite;
-    }
-
-    public function getTwitterCard(): ?string
-    {
-        return $this->twitterCard;
-    }
-
-    public function setTwitterCard(?string $twitterCard): void
-    {
-        $this->twitterCard = $twitterCard;
     }
 
     public function getExtraTags(): ?string

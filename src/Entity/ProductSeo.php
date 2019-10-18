@@ -68,26 +68,6 @@ class ProductSeo implements TranslatableInterface, ResourceInterface
         $this->getTranslation()->setOgDescription($ogDescription);
     }
 
-    public function getOgType(): ?string
-    {
-        return $this->getTranslation()->getOgType();
-    }
-
-    public function setOgType(?string $ogType): void
-    {
-        $this->getTranslation()->setOgType($ogType);
-    }
-
-    public function getTwitterCard(): ?string
-    {
-        return $this->getTranslation()->getTwitterCard();
-    }
-
-    public function setTwitterCard(?string $twitterCard): void
-    {
-        $this->getTranslation()->setTwitterCard($twitterCard);
-    }
-
     public function getTwitterTitle(): ?string
     {
         return $this->getTranslation()->getTwitterTitle();

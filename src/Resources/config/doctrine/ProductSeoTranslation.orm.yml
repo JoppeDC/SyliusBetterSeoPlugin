@@ -26,19 +26,7 @@ JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslation:
             nullable: true
             options:
                 default: ''
-        ogType:
-            column: seo_og_type
-            type: string
-            nullable: true
-            options:
-                default: 'website'
         ##todo: ogImage
-        twitterCard:
-            column: seo_twitter_card
-            type: string
-            nullable: true
-            options:
-                default: 'summary'
         twitterTitle:
             column: seo_twitter_title
             type: string

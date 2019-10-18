@@ -4,11 +4,7 @@
   <h3 class="ui top attached header">{{ 'app.ui.seo'|trans }}</h3>
   <div class="ui attached segment">
     <div class="ui column stackable grid">
-      <div class="column">
-        <div class="ui segment">
           {{ seoTranslationForm(form.seo.translations) }}
-        </div>
-      </div>
     </div>
   </div>
   {{ sonata_block_render_event('sylius.admin.product.' ~ action ~ '.tab_seo', {'form': form}) }}

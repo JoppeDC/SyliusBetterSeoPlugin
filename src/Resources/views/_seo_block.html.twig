@@ -15,11 +15,7 @@
       document.title = '{{ seo.pageTitle }}';
     {% endif %}
 
-    {% if seo.twitterCard is not empty %}
-      appendHtml(document.head, '<meta name="twitter:card" content="{{ seo.twitterCard }}"></meta>');
-    {% else %}
-        appendHtml(document.head, '<meta name="twitter:card" content="summary"></meta>');
-    {% endif %}
+    appendHtml(document.head, '<meta name="twitter:card" content="summary"></meta>');
     {% if seo.twitterSite is not empty %}
       appendHtml(document.head, '<meta name="twitter:site" content="{{ seo.twitterSite }}" />');
     {% endif %}
@@ -34,15 +30,11 @@
       appendHtml(document.head, '<meta name="twitter:description" content="{{ product.shortDescription }}" />');
     {% endif %}
 
+    appendHtml(document.head, '<meta name="og:type" content="website" />');
     {% if seo.ogTitle is not empty %}
       appendHtml(document.head, '<meta name="og:title" content="{{ seo.ogTitle }}" />');
     {% else %}
       appendHtml(document.head, '<meta name="og:title" content="{{ product.name }}" />');
-    {% endif %}
-    {% if seo.ogType is not empty %}
-      appendHtml(document.head, '<meta name="og:type" content="{{ seo.ogType }}" />');
-    {% else %}
-      appendHtml(document.head, '<meta name="og:type" content="website" />');
     {% endif %}
     {% if seo.ogDescription is not empty %}
       appendHtml(document.head, '<meta name="og:description" content="{{ seo.ogDescription }}" />');
