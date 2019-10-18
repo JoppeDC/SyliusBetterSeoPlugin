@@ -7,7 +7,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/JoppeDC/SyliusBetterSeoPlugin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/JoppeDC/SyliusBetterSeoPlugin/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/JoppeDC/SyliusBetterSeoPlugin/badges/build.png?b=master)](https://scrutinizer-ci.com/g/JoppeDC/SyliusBetterSeoPlugin/build-status/master)
 
-<h1 align="center">WIP: Sylius Better SEO Plugin</h1>
+<h1 align="center">Sylius Better SEO Plugin</h1>
     
 <p align="center">
   Adding customizable SEO meta tags and Google structured data to product pages.
