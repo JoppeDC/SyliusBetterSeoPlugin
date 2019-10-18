@@ -26,3 +26,10 @@ services:
             - '@@SyliusBetterSeoPlugin/_seo_block.html.twig'
         tags:
             - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.product.show.before_images, method: onBlockEvent }
+
+    app.block_event_listener.productpage.layout.structured_data:
+        class: Sylius\Bundle\UiBundle\Block\BlockEventListener
+        arguments:
+            - '@@SyliusBetterSeoPlugin/_structured_data.html.twig'
+        tags:
+            - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.product.show.before_images, method: onBlockEvent }
