@@ -47,6 +47,11 @@
     {% if seo.ogDescription is not empty %}
       appendHtml(document.head, '<meta name="og:description" content="{{ seo.ogDescription }}" />');
     {% endif %}
+    {% if product.images.first %}
+      {% set source_image_path = product.images.first.path %}
+      {% set original_image_path = source_image_path|imagine_filter('sylius_shop_product_original') %}
+      appendHtml(document.head, '<meta name="og:image" content="{{ original_image_path }}" />');
+    {% endif %}
 
     {% if seo.extraTags is not empty %}
       {{ seo.extraTags }}
