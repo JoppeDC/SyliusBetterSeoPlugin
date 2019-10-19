@@ -8,6 +8,9 @@ php:
     - '7.2'
     - '7.3'
 
+services:
+    - mysql
+
 cache:
     yarn: true
     directories:
@@ -24,6 +27,7 @@ before_install:
     - phpenv config-rm xdebug.ini
     - echo "memory_limit=4096M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
     - mkdir -p "${SYLIUS_CACHE_DIR}"
+    - cp tests/Application/.env.travis tests/Application/.env.test
 
 install:
     - composer install --no-interaction --prefer-dist
