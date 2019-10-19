@@ -6,7 +6,6 @@ namespace JoppeDc\SyliusBetterSeoPlugin\Entity;
 
 use Sylius\Component\Resource\Model\AbstractTranslation;
 use Sylius\Component\Resource\Model\ResourceInterface;
-use Sylius\Component\Resource\Model\TranslationInterface;
 
 class ProductSeoTranslation extends AbstractTranslation implements ResourceInterface
 {
