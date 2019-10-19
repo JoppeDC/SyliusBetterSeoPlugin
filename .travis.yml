@@ -12,7 +12,7 @@ services:
     - mysql
 
 addons:
-    mariadb: "10.2"
+    mariadb: '10.2'
 
 cache:
     yarn: true
