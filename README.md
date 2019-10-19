@@ -45,7 +45,6 @@
 
 ## Examples
 
-  
 <img align="center" src="https://imgur.com/wTZtSDa.jpg" alt="Kitten" title="Google Preview" height="150" >
 <img align="center" src="https://imgur.com/wvLt5em.jpg" alt="Kitten" title="Facebook Preview" height="150" >
 <img align="center" src="https://imgur.com/hMNvu2C.jpg" alt="Kitten" title="Twitter Preview" height="150" >
@@ -53,3 +52,9 @@
 ## Documentation
 
 * [Local development](docs/LOCAL_DEVELOPMENT.md)
+
+## License
+
+[The MIT License (MIT)](LICENSE)
+
+Copyright © 2019 Joppe De Cuyper
