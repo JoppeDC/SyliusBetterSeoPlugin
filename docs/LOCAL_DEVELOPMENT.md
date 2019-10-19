@@ -1,4 +1,3 @@
-
 ## Local Development
 
 1. Clone the repo to a local folder and install composer dependencies using the following command:
