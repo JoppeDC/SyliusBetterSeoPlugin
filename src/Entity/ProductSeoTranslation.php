@@ -6,9 +6,8 @@ namespace JoppeDc\SyliusBetterSeoPlugin\Entity;
 
 use Sylius\Component\Resource\Model\AbstractTranslation;
 use Sylius\Component\Resource\Model\ResourceInterface;
-use Sylius\Component\Resource\Model\TranslationInterface;
 
-class ProductSeoTranslation extends AbstractTranslation implements ResourceInterface, TranslationInterface
+class ProductSeoTranslation extends AbstractTranslation implements ResourceInterface
 {
     /**
      * @var int
@@ -33,11 +32,6 @@ class ProductSeoTranslation extends AbstractTranslation implements ResourceInter
     /**
      * @var string
      */
-    private $ogType;
-
-    /**
-     * @var string
-     */
     private $twitterTitle;
 
     /**
@@ -49,11 +43,6 @@ class ProductSeoTranslation extends AbstractTranslation implements ResourceInter
      * @var string
      */
     private $twitterSite;
-
-    /**
-     * @var string
-     */
-    private $twitterCard;
 
     /**
      * @var string
