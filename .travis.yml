@@ -8,6 +8,12 @@ php:
     - '7.2'
     - '7.3'
 
+services:
+    - mysql
+
+addons:
+    mariadb: '10.2'
+
 cache:
     yarn: true
     directories:
@@ -24,14 +30,15 @@ before_install:
     - phpenv config-rm xdebug.ini
     - echo "memory_limit=4096M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
     - mkdir -p "${SYLIUS_CACHE_DIR}"
+    - cp tests/Application/.env.travis tests/Application/.env.test
 
 install:
     - composer install --no-interaction --prefer-dist
     - (cd tests/Application && yarn install)
 
 before_script:
-    - (cd tests/Application && bin/console doctrine:database:create -vvv)
-    - (cd tests/Application && bin/console doctrine:schema:create -vvv)
+    - (cd tests/Application && bin/console doctrine:database:create -vvv --no-interaction --if-not-exists)
+    - (cd tests/Application && bin/console doctrine:schema:create -vvv --no-interaction)
     - (cd tests/Application && bin/console assets:install public -vvv)
     - (cd tests/Application && bin/console cache:warmup -vvv)
     - (cd tests/Application && yarn build)
