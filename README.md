@@ -5,7 +5,7 @@
 </p>
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/JoppeDC/SyliusBetterSeoPlugin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/JoppeDC/SyliusBetterSeoPlugin/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/JoppeDC/SyliusBetterSeoPlugin/badges/build.png?b=master)](https://scrutinizer-ci.com/g/JoppeDC/SyliusBetterSeoPlugin/build-status/master)
+[![Build Status](https://travis-ci.org/JoppeDC/SyliusBetterSeoPlugin.svg?branch=master)](https://travis-ci.org/JoppeDC/SyliusBetterSeoPlugin)
 
 <h1 align="center">Sylius Better SEO Plugin</h1>
     
