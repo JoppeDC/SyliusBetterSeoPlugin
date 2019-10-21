@@ -10,42 +10,42 @@ use Sylius\Component\Resource\Model\ResourceInterface;
 class ProductSeoTranslation extends AbstractTranslation implements ResourceInterface
 {
     /**
-     * @var int
+     * @var int|null
      */
     protected $id;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $pageTitle;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $ogTitle;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $ogDescription;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $twitterTitle;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $twitterDescription;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $twitterSite;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $extraTags;
 

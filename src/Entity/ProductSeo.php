@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace JoppeDc\SyliusBetterSeoPlugin\Entity;
 
-use Sylius\Component\Core\Model\ProductTranslationInterface;
 use Sylius\Component\Product\Model\ProductInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TranslatableInterface;
@@ -19,12 +18,12 @@ class ProductSeo implements TranslatableInterface, ResourceInterface
     }
 
     /**
-     * @var int
+     * @var int|null
      */
     protected $id;
 
     /**
-     * @var ProductInterface
+     * @var ProductInterface|null
      */
     private $product;
 
@@ -123,7 +122,7 @@ class ProductSeo implements TranslatableInterface, ResourceInterface
      */
     public function getTranslation(?string $locale = null): TranslationInterface
     {
-        /** @var ProductTranslationInterface $translation */
+        /** @var ProductSeoTranslation $translation */
         $translation = $this->doGetTranslation($locale);
 
         return $translation;
