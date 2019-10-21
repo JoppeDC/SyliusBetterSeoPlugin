@@ -75,7 +75,8 @@ before_script:
 script:
     - composer validate --strict
     - vendor/bin/phpstan analyse -c phpstan.neon -l max src/
-
+    - vendor/bin/ecs check src
+    - vendor/bin/phpcs --standard=PSR2 --colors -p src
     - vendor/bin/phpunit
     - vendor/bin/phpspec run
     - vendor/bin/behat -vvv --no-interaction || vendor/bin/behat -vvv --no-interaction --rerun
