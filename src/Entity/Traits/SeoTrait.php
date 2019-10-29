@@ -9,7 +9,7 @@ use JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeo;
 trait SeoTrait
 {
     /**
-     * @var ProductSeo
+     * @var ProductSeo|null
      */
     protected $seo;
 

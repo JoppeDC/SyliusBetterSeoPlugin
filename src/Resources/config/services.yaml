@@ -18,12 +18,19 @@ services:
         class: JoppeDc\SyliusBetterSeoPlugin\Form\Type\SeoTranslationType
         tags:
             - { name: form.type }
-        arguments: ['%sylius_better_seo_plugin.model.seo_translation.class%']
+        arguments: ['JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslation']
 
     app.block_event_listener.productpage.layout.head:
         class: Sylius\Bundle\UiBundle\Block\BlockEventListener
         arguments:
             - '@@SyliusBetterSeoPlugin/_seo_block.html.twig'
+        tags:
+            - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.product.show.before_images, method: onBlockEvent }
+
+    app.block_event_listener.productpage.layout.structured_data:
+        class: Sylius\Bundle\UiBundle\Block\BlockEventListener
+        arguments:
+            - '@@SyliusBetterSeoPlugin/_structured_data.html.twig'
         tags:
             - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.product.show.before_images, method: onBlockEvent }
 

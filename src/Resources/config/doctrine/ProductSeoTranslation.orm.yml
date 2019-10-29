@@ -26,18 +26,7 @@ JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslation:
             nullable: true
             options:
                 default: ''
-        ogType:
-            column: seo_og_type
-            type: string
-            nullable: true
-            options:
-                default: 'website'
-        twitterCard:
-            column: seo_twitter_card
-            type: string
-            nullable: true
-            options:
-                default: 'summary'
+        ##todo: ogImage
         twitterTitle:
             column: seo_twitter_title
             type: string
@@ -52,6 +41,12 @@ JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslation:
                 default: ''
         twitterSite:
             column: seo_twitter_site
+            type: string
+            nullable: true
+            options:
+                default: ''
+        extraTags:
+            column: seo_extra_tags
             type: string
             nullable: true
             options:

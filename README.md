@@ -4,40 +4,57 @@
     </a>
 </p>
 
-<h1 align="center">WIP: Sylius Better SEO Plugin</h1>
-
-<p align="center">Adding SEO meta tags to product pages.
-
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/JoppeDC/SyliusBetterSeoPlugin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/JoppeDC/SyliusBetterSeoPlugin/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/JoppeDC/SyliusBetterSeoPlugin/badges/build.png?b=master)](https://scrutinizer-ci.com/g/JoppeDC/SyliusBetterSeoPlugin/build-status/master)
+[![Build Status](https://travis-ci.org/JoppeDC/SyliusBetterSeoPlugin.svg?branch=master)](https://travis-ci.org/JoppeDC/SyliusBetterSeoPlugin)
 
+<h1 align="center">Sylius Better SEO Plugin</h1>
+    
+<p align="center">
+  Adding customizable SEO meta tags and Google structured data to product pages.
 </p>
 
-## Local Development Test
+## Installation 
 
-1. Clone the repo to a local folder and install composer dependencies using the following command:
-    ```
-    $ composer install
-    ```
-
-2. From the plugin root directory, run the following commands:
+1. Require plugin with composer:
 
     ```bash
-    $ (cd tests/Application && yarn install)
-    $ (cd tests/Application && yarn build)
-    $ (cd tests/Application && bin/console assets:install public -e test)
+    composer require joppedc/sylius-better-seo-plugin:^1.0@dev
+    ```
+
+2. Add plugin class to your `bundles.php`.
+
+    ```php
+    JoppeDc\SyliusBetterSeoPlugin\SyliusBetterSeoPlugin::class => ['all' => true],
+    ```
+
+    or `appkernel.php`
+
+    ```php
+    $bundles = [
+       new \StefanDoorn\SyliusStreetNumberPlugin\SyliusStreetNumberPlugin(),
+    ];
+    ```
     
-    $ (cd tests/Application && bin/console doctrine:database:create -e test)
-    $ (cd tests/Application && bin/console doctrine:schema:create -e test)
+3. (optional) Load resource override (if you don't have this done in your project yet):
+
+    ```yaml
+    - { resource: "@SyliusBetterSeoPlugin/Resources/config/resources.yaml" }
     ```
 
-In this case i used a docker-compose database. You can use your own database, but don't forget to set the credentials in the .env file.
+    If you are already overriding the Product resource, you can use the included trait.
 
-### Opening Sylius with the plugin
+## Examples
 
-- Using `dev` environment:
+<img align="center" src="https://imgur.com/wTZtSDa.jpg" alt="Kitten" title="Google Preview" height="150" >
+<img align="center" src="https://imgur.com/wvLt5em.jpg" alt="Kitten" title="Facebook Preview" height="150" >
+<img align="center" src="https://imgur.com/hMNvu2C.jpg" alt="Kitten" title="Twitter Preview" height="150" >
 
-    ```bash
-    $ (cd tests/Application && bin/console sylius:fixtures:load -e dev)
-    $ (cd tests/Application && bin/console server:run -d public -e dev)
-    ```
+## Documentation
+
+* [Local development](docs/LOCAL_DEVELOPMENT.md)
+
+## License
+
+[The MIT License (MIT)](LICENSE)
+
+Copyright © 2019 Joppe De Cuyper

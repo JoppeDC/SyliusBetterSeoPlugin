@@ -8,54 +8,48 @@ use Sylius\Component\Core\Model\ImageAwareInterface;
 use Sylius\Component\Core\Model\ImageInterface;
 use Sylius\Component\Resource\Model\AbstractTranslation;
 use Sylius\Component\Resource\Model\ResourceInterface;
-use Sylius\Component\Resource\Model\TranslationInterface;
 
-class ProductSeoTranslation extends AbstractTranslation implements ResourceInterface, TranslationInterface, ImageAwareInterface
+class ProductSeoTranslation extends AbstractTranslation implements ResourceInterface, ImageAwareInterface
 {
     /**
-     * @var int
+     * @var int|null
      */
     protected $id;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $pageTitle;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $ogTitle;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $ogDescription;
 
     /**
-     * @var string
-     */
-    private $ogType;
-
-    /**
-     * @var string
+     * @var string|null
      */
     private $twitterTitle;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $twitterDescription;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $twitterSite;
 
     /**
-     * @var string
+     * @var string|null
      */
-    private $twitterCard;
+    private $extraTags;
 
     /**
      * @var ImageInterface
@@ -102,16 +96,6 @@ class ProductSeoTranslation extends AbstractTranslation implements ResourceInter
         $this->ogDescription = $ogDescription;
     }
 
-    public function getOgType(): ?string
-    {
-        return $this->ogType;
-    }
-
-    public function setOgType(?string $ogType): void
-    {
-        $this->ogType = $ogType;
-    }
-
     public function getTwitterTitle(): ?string
     {
         return $this->twitterTitle;
@@ -142,14 +126,14 @@ class ProductSeoTranslation extends AbstractTranslation implements ResourceInter
         $this->twitterSite = $twitterSite;
     }
 
-    public function getTwitterCard(): ?string
+    public function getExtraTags(): ?string
     {
-        return $this->twitterCard;
+        return $this->extraTags;
     }
 
-    public function setTwitterCard(?string $twitterCard): void
+    public function setExtraTags(?string $extraTags): void
     {
-        $this->twitterCard = $twitterCard;
+        $this->extraTags = $extraTags;
     }
 
     public function getImage(): ?ImageInterface

@@ -1,12 +1,12 @@
 app:
     ui:
+        page_title: Page Title
+        seo: SEO
         twitter_description: Twitter Description
         twitter_title: Twitter Title
+        twitter_site: Twitter Site
         og_url: OG Url
         og_description: OG Description
         og_title: OG Title
-        page_title: Page Title
-        seo: SEO
-        twitter_card: Twitter Card
-        twitter_site: Twitter Site
-        image: Image URL
+        extra_tags: Extra Raw Meta Tags
+        image: Image

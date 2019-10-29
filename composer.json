@@ -6,7 +6,6 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
-
         "sylius/sylius": "^1.4"
     },
     "require-dev": {
@@ -50,5 +49,10 @@
     },
     "autoload-dev": {
         "classmap": ["tests/Application/Kernel.php"]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
     }
 }

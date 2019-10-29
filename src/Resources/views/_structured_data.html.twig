@@ -1,0 +1,81 @@
+{% set product = settings.product %}
+{% set reviews = [] %}
+{% for review in product.reviews %}
+  {% if review.status == constant('Sylius\\Component\\Review\\Model\\ReviewInterface::STATUS_ACCEPTED') %}
+    {% set reviews = reviews|merge([review]) %}
+  {% endif %}
+{% endfor %}
+
+{% if reviews is not empty %}
+  {% set minReview = reviews | first.rating %}
+  {% set maxReview = minReview %}
+  {% for review in reviews %}
+    {% if(review.rating > maxReview) %}
+      {% set maxReview = review.rating %}
+    {% elseif(review.rating < minReview) %}
+      {% set minReview = review.rating %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% set minPrice = product.variants.first.channelPricingForChannel(sylius.channel).price / 100 %}
+{% set maxPrice = minPrice %}
+{% for variant in product.variants %}
+  {% set variantPrice = variant.channelPricingForChannel(sylius.channel).price / 100 %}
+  {% if(variantPrice > maxPrice) %}
+    {% set maxPrice = variantPrice %}
+  {% elseif(variantPrice < minPrice) %}
+    {% set minPrice = variantPrice %}
+  {% endif %}
+{% endfor %}
+
+{% if product.images.first %}
+  {% set source_image_path = product.images.first.path %}
+  {% set original_image_path = source_image_path|imagine_filter('sylius_shop_product_original') %}
+{% endif %}
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Product",
+    {% if reviews is not empty %}
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ product.averageRating }}",
+        "reviewCount": "{{ reviews | length }}",
+        "worstRating": "{{ minReview }}",
+        "bestRating":"{{ maxReview }}"
+      },
+    {% endif %}
+    "description": "{{ product.shortDescription }}",
+    "name": "{{ product.name }}",
+    {% if product.images.first %}
+      "image": "{{ original_image_path }}",
+    {% endif %}
+    {% if reviews is not empty %}
+      "review": [
+        {% for review in reviews %}
+          {
+            "@type": "Review",
+            "author": "{{ review.author.firstName }}",
+            "datePublished": "{{ review.createdAt | date('Y-m-d') }}",
+            "description": "{{ review.comment }}",
+            "name": "{{ review.title }}",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "{{ review.rating }}"
+            }
+          }{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ],
+    {% endif %}
+    "offers": {
+      "@type": "AggregateOffer",
+      "highPrice": "{{ maxPrice }}",
+      "lowPrice": "{{ minPrice }}",
+      "offerCount": "{{ product.variants | length }}",
+      "priceCurrency": "{{ sylius.channel.baseCurrency.code }}"
+    },
+    "url": "{{ app.request.uri }}"
+  }
+</script>

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace JoppeDc\SyliusBetterSeoPlugin\Entity;
 
-use Sylius\Component\Core\Model\ProductTranslationInterface;
 use Sylius\Component\Product\Model\ProductInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TranslatableInterface;
@@ -19,12 +18,12 @@ class ProductSeo implements TranslatableInterface, ResourceInterface
     }
 
     /**
-     * @var int
+     * @var int|null
      */
     protected $id;
 
     /**
-     * @var ProductInterface
+     * @var ProductInterface|null
      */
     private $product;
 
@@ -68,26 +67,6 @@ class ProductSeo implements TranslatableInterface, ResourceInterface
         $this->getTranslation()->setOgDescription($ogDescription);
     }
 
-    public function getOgType(): ?string
-    {
-        return $this->getTranslation()->getOgType();
-    }
-
-    public function setOgType(?string $ogType): void
-    {
-        $this->getTranslation()->setOgType($ogType);
-    }
-
-    public function getTwitterCard(): ?string
-    {
-        return $this->getTranslation()->getTwitterCard();
-    }
-
-    public function setTwitterCard(?string $twitterCard): void
-    {
-        $this->getTranslation()->setTwitterCard($twitterCard);
-    }
-
     public function getTwitterTitle(): ?string
     {
         return $this->getTranslation()->getTwitterTitle();
@@ -118,6 +97,16 @@ class ProductSeo implements TranslatableInterface, ResourceInterface
         $this->getTranslation()->setTwitterSite($twitterSite);
     }
 
+    public function getExtraTags(): ?string
+    {
+        return $this->getTranslation()->getExtraTags();
+    }
+
+    public function setExtraTags(?string $extraTags): void
+    {
+        $this->getTranslation()->setExtraTags($extraTags);
+    }
+
     public function getImage(): ?string
     {
         return $this->getTranslation()->getImage();
@@ -143,7 +132,7 @@ class ProductSeo implements TranslatableInterface, ResourceInterface
      */
     public function getTranslation(?string $locale = null): TranslationInterface
     {
-        /** @var ProductTranslationInterface $translation */
+        /** @var ProductSeoTranslation $translation */
         $translation = $this->doGetTranslation($locale);
 
         return $translation;
