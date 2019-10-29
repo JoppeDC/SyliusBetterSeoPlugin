@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace JoppeDc\SyliusBetterSeoPlugin\Entity;
 
+use Sylius\Component\Core\Model\ImageAwareInterface;
+use Sylius\Component\Core\Model\ImageInterface;
 use Sylius\Component\Resource\Model\AbstractTranslation;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TranslationInterface;
 
-class ProductSeoTranslation extends AbstractTranslation implements ResourceInterface, TranslationInterface
+class ProductSeoTranslation extends AbstractTranslation implements ResourceInterface, TranslationInterface, ImageAwareInterface
 {
     /**
      * @var int
@@ -56,7 +58,7 @@ class ProductSeoTranslation extends AbstractTranslation implements ResourceInter
     private $twitterCard;
 
     /**
-     * @var string
+     * @var ImageInterface
      */
     private $image;
 
@@ -150,12 +152,12 @@ class ProductSeoTranslation extends AbstractTranslation implements ResourceInter
         $this->twitterCard = $twitterCard;
     }
 
-    public function getImage(): ?string
+    public function getImage(): ?ImageInterface
     {
         return $this->image;
     }
 
-    public function setImage(?string $image): void
+    public function setImage(?ImageInterface $image): void
     {
         $this->image = $image;
     }

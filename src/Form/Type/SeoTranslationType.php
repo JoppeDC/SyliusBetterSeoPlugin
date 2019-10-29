@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace JoppeDc\SyliusBetterSeoPlugin\Form\Type;
 
+use JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslationImage;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -61,8 +62,8 @@ class SeoTranslationType extends AbstractResourceType
             'required' => false,
         ]);
 
-        $builder->add('image', TextType::class, [
-            'empty_data' => '',
+        $builder->add('image', SeoTranslationImageType::class, [
+            'empty_data' => null,
             'label' => 'app.ui.image',
             'required' => false,
         ]);

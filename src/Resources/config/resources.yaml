@@ -14,3 +14,11 @@ sylius_resource:
             translation:
                 classes:
                     model: JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslation
+        sylius_better_seo_plugin.seo_translation:
+            classes:
+                model: JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslation
+                form: JoppeDc\SyliusBetterSeoPlugin\Form\Type\SeoTranslationType
+        sylius_better_seo_plugin.seo_translation_image:
+            classes:
+                model: JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslationImage
+                form: JoppeDc\SyliusBetterSeoPlugin\Form\Type\SeoTranslationImageType

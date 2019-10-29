@@ -18,7 +18,7 @@ services:
         class: JoppeDc\SyliusBetterSeoPlugin\Form\Type\SeoTranslationType
         tags:
             - { name: form.type }
-        arguments: ['JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslation']
+        arguments: ['%sylius_better_seo_plugin.model.seo_translation.class%']
 
     app.block_event_listener.productpage.layout.head:
         class: Sylius\Bundle\UiBundle\Block\BlockEventListener
@@ -26,3 +26,19 @@ services:
             - '@@SyliusBetterSeoPlugin/_seo_block.html.twig'
         tags:
             - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.product.show.before_images, method: onBlockEvent }
+
+    app.form.type.product_seo_translation_image:
+        class: JoppeDc\SyliusBetterSeoPlugin\Form\Type\SeoTranslationImageType
+        tags:
+            - { name: form.type }
+        arguments: ['%sylius_better_seo_plugin.model.seo_translation_image.class%']
+
+    app.listener.product_seo_translation_images_upload:
+        class: JoppeDc\SyliusBetterSeoPlugin\EventListener\ProductSeoTranslationImageUploadListener
+        parent: sylius.listener.images_upload
+        autowire: true
+        autoconfigure: false
+        public: false
+        tags:
+            - { name: kernel.event_listener, event: sylius.product.pre_create, method: uploadImage }
+            - { name: kernel.event_listener, event: sylius.product.pre_update, method: uploadImage }
