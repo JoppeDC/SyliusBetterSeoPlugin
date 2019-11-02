@@ -26,7 +26,6 @@ JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslation:
             nullable: true
             options:
                 default: ''
-        ##todo: ogImage
         twitterTitle:
             column: seo_twitter_title
             type: string
@@ -51,10 +50,10 @@ JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslation:
             nullable: true
             options:
                 default: ''
-    oneToOne:
-        image:
+    oneToMany:
+        images:
             targetEntity: ProductSeoTranslationImage
             mappedBy: owner
             orphanRemoval: true
             nullable: true
-            onDelete: CASCADE
+            cascade: [ all ]

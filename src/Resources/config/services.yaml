@@ -1,3 +1,7 @@
+parameters:
+    app.form.type.product_seo_translation.validation_groups: [app_product_seo]
+    app.form.type.product_seo.validation_groups: [app_product_seo]
+
 services:
     JoppeDc\SyliusBetterSeoPlugin\Form\ProductTypeExtension:
         tags:
@@ -41,11 +45,11 @@ services:
         arguments: ['%sylius_better_seo_plugin.model.seo_translation_image.class%']
 
     app.listener.product_seo_translation_images_upload:
-        class: JoppeDc\SyliusBetterSeoPlugin\EventListener\ProductSeoTranslationImageUploadListener
+        class: JoppeDc\SyliusBetterSeoPlugin\EventListener\ProductSeoTranslationImagesUploadListener
         parent: sylius.listener.images_upload
         autowire: true
         autoconfigure: false
         public: false
         tags:
-            - { name: kernel.event_listener, event: sylius.product.pre_create, method: uploadImage }
-            - { name: kernel.event_listener, event: sylius.product.pre_update, method: uploadImage }
+            - { name: kernel.event_listener, event: sylius.product.pre_create, method: uploadImages }
+            - { name: kernel.event_listener, event: sylius.product.pre_update, method: uploadImages }

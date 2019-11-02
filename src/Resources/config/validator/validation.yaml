@@ -1,0 +1,9 @@
+JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslation:
+  properties:
+    images:
+      - Count:
+          min: 0
+          max: 1
+          minMessage: 'You must specify at least one email'
+          maxMessage: 'You cannot specify more than {{ limit }} emails'
+          groups: [app_product_seo]

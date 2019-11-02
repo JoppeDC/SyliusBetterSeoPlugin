@@ -1,10 +1,10 @@
 JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslationImage:
     type: entity
     table: joppedc_product_seo_translation_image
-    oneToOne:
+    manyToOne:
         owner:
             targetEntity: ProductSeoTranslation
-            inversedBy: image
+            inversedBy: images
             joinColumn:
                 name: owner_id
                 referencedColumnName: id

@@ -4,13 +4,25 @@ declare(strict_types=1);
 
 namespace JoppeDc\SyliusBetterSeoPlugin\Entity;
 
-use Sylius\Component\Core\Model\ImageAwareInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Core\Model\ImageInterface;
+use Sylius\Component\Core\Model\ImagesAwareInterface;
 use Sylius\Component\Resource\Model\AbstractTranslation;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
-class ProductSeoTranslation extends AbstractTranslation implements ResourceInterface, ImageAwareInterface
-{
+class ProductSeoTranslation extends AbstractTranslation implements ResourceInterface, ImagesAwareInterface {
+
+    /**
+     * @var Collection|ImageInterface[]
+     */
+    protected $images;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
+
     /**
      * @var int|null
      */
@@ -50,11 +62,6 @@ class ProductSeoTranslation extends AbstractTranslation implements ResourceInter
      * @var string|null
      */
     private $extraTags;
-
-    /**
-     * @var ImageInterface
-     */
-    private $image;
 
     public function getId(): ?int
     {
@@ -136,13 +143,57 @@ class ProductSeoTranslation extends AbstractTranslation implements ResourceInter
         $this->extraTags = $extraTags;
     }
 
-    public function getImage(): ?ImageInterface
+    /**
+     * {@inheritdoc}
+     */
+    public function getImages(): Collection
     {
-        return $this->image;
+        return $this->images;
     }
 
-    public function setImage(?ImageInterface $image): void
+    /**
+     * {@inheritdoc}
+     */
+    public function getImagesByType(string $type): Collection
     {
-        $this->image = $image;
+        return $this->images->filter(function (ImageInterface $image) use ($type) {
+            return $type === $image->getType();
+        });
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasImages(): bool
+    {
+        return !$this->images->isEmpty();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasImage(ImageInterface $image): bool
+    {
+        return $this->images->contains($image);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addImage(ImageInterface $image): void
+    {
+        $image->setOwner($this);
+        $this->images->add($image);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function removeImage(ImageInterface $image): void
+    {
+        if ($this->hasImage($image)) {
+            $image->setOwner(null);
+            $this->images->removeElement($image);
+        }
     }
 }

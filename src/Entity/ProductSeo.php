@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace JoppeDc\SyliusBetterSeoPlugin\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Product\Model\ProductInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TranslatableInterface;
@@ -107,14 +108,11 @@ class ProductSeo implements TranslatableInterface, ResourceInterface
         $this->getTranslation()->setExtraTags($extraTags);
     }
 
-    public function getImage(): ?string
+    public function getImage(): ?ProductSeoTranslationImage
     {
-        return $this->getTranslation()->getImage();
-    }
+        $images = $this->getTranslation()->getImages();
 
-    public function setImage(?string $image): void
-    {
-        $this->getTranslation()->setImage($image);
+        return count($images) ? $images->first() : null;
     }
 
     public function getId()

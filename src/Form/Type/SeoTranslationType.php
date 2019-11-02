@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace JoppeDc\SyliusBetterSeoPlugin\Form\Type;
 
-use JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslationImage;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Count;
 
 class SeoTranslationType extends AbstractResourceType
 {
@@ -56,8 +57,11 @@ class SeoTranslationType extends AbstractResourceType
             'required' => false,
         ]);
 
-        $builder->add('image', SeoTranslationImageType::class, [
-            'empty_data' => null,
+        $builder->add('images', CollectionType::class, [
+            'entry_type' => SeoTranslationImageType::class,
+            'allow_add' => true,
+            'allow_delete' => true,
+            'by_reference' => false,
             'label' => 'app.ui.image',
             'required' => false,
         ]);

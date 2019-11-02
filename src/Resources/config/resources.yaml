@@ -4,7 +4,6 @@ sylius_product:
             classes:
                 model: JoppeDc\SyliusBetterSeoPlugin\Entity\Product
 
-
 sylius_resource:
     resources:
         sylius_better_seo_plugin.seo:
