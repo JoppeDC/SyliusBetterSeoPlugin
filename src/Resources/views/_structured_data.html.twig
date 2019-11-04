@@ -42,9 +42,7 @@
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "{{ product.averageRating }}",
-        "reviewCount": "{{ reviews | length }}",
-        "worstRating": "{{ minReview }}",
-        "bestRating":"{{ maxReview }}"
+        "reviewCount": "{{ reviews | length }}"
       },
     {% endif %}
     "description": "{{ product.shortDescription }}",
