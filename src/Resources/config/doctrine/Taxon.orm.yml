@@ -1,6 +1,6 @@
-JoppeDc\SyliusBetterSeoPlugin\Entity\Product:
+JoppeDc\SyliusBetterSeoPlugin\Entity\Taxon:
     type: entity
-    table: sylius_product
+    table: sylius_taxon
     oneToOne:
         seo:
             targetEntity: Seo

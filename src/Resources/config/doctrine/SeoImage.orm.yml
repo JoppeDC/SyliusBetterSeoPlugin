@@ -1,0 +1,11 @@
+JoppeDc\SyliusBetterSeoPlugin\Entity\SeoImage:
+    type: entity
+    table: joppedc_seo_image
+    oneToOne:
+        owner:
+            targetEntity: JoppeDc\SyliusBetterSeoPlugin\Entity\SeoTranslation
+            inversedBy: image
+            cascade: [ALL]
+            joinColumn:
+                name: owner_id
+                referencedColumnName: id

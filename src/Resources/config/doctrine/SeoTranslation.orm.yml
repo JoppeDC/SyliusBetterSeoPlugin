@@ -1,6 +1,11 @@
-JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslation:
+JoppeDc\SyliusBetterSeoPlugin\Entity\SeoTranslation:
     type: entity
-    table: joppedc_product_seo_translation
+    table: joppedc_seo_translation
+    oneToOne:
+        image:
+            targetEntity: JoppeDc\SyliusBetterSeoPlugin\Entity\SeoImage
+            mappedBy: owner
+            cascade: [ALL]
     id:
         id:
             type: integer
@@ -26,7 +31,6 @@ JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslation:
             nullable: true
             options:
                 default: ''
-        ##todo: ogImage
         twitterTitle:
             column: seo_twitter_title
             type: string

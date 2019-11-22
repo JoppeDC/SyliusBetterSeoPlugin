@@ -7,12 +7,17 @@ namespace JoppeDc\SyliusBetterSeoPlugin\Entity;
 use Sylius\Component\Resource\Model\AbstractTranslation;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
-class ProductSeoTranslation extends AbstractTranslation implements ResourceInterface
+class SeoTranslation extends AbstractTranslation implements ResourceInterface
 {
     /**
      * @var int|null
      */
     protected $id;
+
+    /**
+     * @var SeoImageInterface
+     */
+    protected $image;
 
     /**
      * @var string|null
@@ -127,5 +132,19 @@ class ProductSeoTranslation extends AbstractTranslation implements ResourceInter
     public function setExtraTags(?string $extraTags): void
     {
         $this->extraTags = $extraTags;
+    }
+
+    public function getImage(): ?SeoImageInterface
+    {
+        return $this->image;
+    }
+
+    public function setImage(?SeoImage $image): void
+    {
+        if (null !== $image) {
+            $image->setOwner($this);
+        }
+
+        $this->image = $image;
     }
 }

@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace JoppeDc\SyliusBetterSeoPlugin\Entity;
 
 use JoppeDc\SyliusBetterSeoPlugin\Entity\Traits\SeoTrait;
-use Sylius\Component\Core\Model\Product as SyliusProduct;
+use Sylius\Component\Core\Model\Taxon as SyliusTaxon;
 
-class Product extends SyliusProduct implements SeoInterface
+class Taxon extends SyliusTaxon implements SeoInterface
 {
     use SeoTrait;
 }
