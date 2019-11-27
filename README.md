@@ -35,7 +35,7 @@
 
     ```php
     $bundles = [
-       new \StefanDoorn\SyliusStreetNumberPlugin\SyliusStreetNumberPlugin(),
+       new \JoppeDc\SyliusBetterSeoPlugin\SyliusBetterSeoPlugin(),
     ];
     ```
    
