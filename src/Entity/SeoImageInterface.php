@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace JoppeDc\SyliusBetterSeoPlugin\Entity;
 
-interface SeoImageInterface
+use Sylius\Component\Core\Model\ImageInterface;
+
+interface SeoImageInterface extends ImageInterface
 {
 }

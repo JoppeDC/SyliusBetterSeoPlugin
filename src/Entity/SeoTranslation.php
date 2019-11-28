@@ -7,7 +7,7 @@ namespace JoppeDc\SyliusBetterSeoPlugin\Entity;
 use Sylius\Component\Resource\Model\AbstractTranslation;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
-class SeoTranslation extends AbstractTranslation implements ResourceInterface
+class SeoTranslation extends AbstractTranslation implements ResourceInterface, SeoTranslationInterface
 {
     /**
      * @var int|null
@@ -15,7 +15,7 @@ class SeoTranslation extends AbstractTranslation implements ResourceInterface
     protected $id;
 
     /**
-     * @var SeoImageInterface
+     * @var SeoImageInterface|null
      */
     protected $image;
 
@@ -139,7 +139,7 @@ class SeoTranslation extends AbstractTranslation implements ResourceInterface
         return $this->image;
     }
 
-    public function setImage(?SeoImage $image): void
+    public function setImage(?SeoImageInterface $image): void
     {
         if (null !== $image) {
             $image->setOwner($this);

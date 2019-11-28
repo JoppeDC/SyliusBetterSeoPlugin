@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace JoppeDc\SyliusBetterSeoPlugin\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TranslatableInterface;
 use Sylius\Component\Resource\Model\TranslatableTrait;
 use Sylius\Component\Resource\Model\TranslationInterface;
 
-class Seo implements TranslatableInterface, ResourceInterface
+class Seo implements TranslatableInterface, ResourceInterface, SeoInterface
 {
     use TranslatableTrait {
         __construct as private initializeTranslationsCollection;
@@ -111,7 +112,7 @@ class Seo implements TranslatableInterface, ResourceInterface
         $this->id = $id;
     }
 
-    public function getImage(): ?SeoImage
+    public function getImage(): ?SeoImageInterface
     {
         return $this->getTranslation()->getImage();
     }
@@ -125,6 +126,11 @@ class Seo implements TranslatableInterface, ResourceInterface
         $translation = $this->doGetTranslation($locale);
 
         return $translation;
+    }
+
+    public function getTranslations(): Collection
+    {
+        return $this->translations;
     }
 
     protected function createTranslation(): SeoTranslation

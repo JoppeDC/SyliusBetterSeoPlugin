@@ -7,7 +7,7 @@ namespace JoppeDc\SyliusBetterSeoPlugin\Entity;
 use JoppeDc\SyliusBetterSeoPlugin\Entity\Traits\SeoTrait;
 use Sylius\Component\Core\Model\Product as SyliusProduct;
 
-class Product extends SyliusProduct implements SeoInterface
+class Product extends SyliusProduct implements HasSeoInterface
 {
     use SeoTrait;
 }

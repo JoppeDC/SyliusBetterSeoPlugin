@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace JoppeDc\SyliusBetterSeoPlugin\Entity;
 
-use Doctrine\Common\Collections\Collection;
-use Sylius\Component\Resource\Model\TranslationInterface;
-
-interface SeoInterface
+interface SeoTranslationInterface
 {
+    public function getId(): ?int;
+
+    public function setId(?int $id): void;
+
     public function getPageTitle(): ?string;
 
     public function setPageTitle(?string $pageTitle): void;
@@ -37,16 +38,7 @@ interface SeoInterface
 
     public function setExtraTags(?string $extraTags): void;
 
-    public function getId();
-
-    public function setId(?int $id): void;
-
     public function getImage(): ?SeoImageInterface;
 
-    /**
-     * @return SeoTranslation
-     */
-    public function getTranslation(?string $locale = null): TranslationInterface;
-
-    public function getTranslations(): Collection;
+    public function setImage(?SeoImageInterface $image): void;
 }

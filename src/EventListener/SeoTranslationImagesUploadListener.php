@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace JoppeDc\SyliusBetterSeoPlugin\EventListener;
 
+use JoppeDc\SyliusBetterSeoPlugin\Entity\HasSeoInterface;
 use JoppeDc\SyliusBetterSeoPlugin\Entity\SeoImageInterface;
 use JoppeDc\SyliusBetterSeoPlugin\Entity\SeoInterface;
-use JoppeDc\SyliusBetterSeoPlugin\Entity\SeoTranslation;
+use JoppeDc\SyliusBetterSeoPlugin\Entity\SeoTranslationInterface;
 use Sylius\Component\Core\Uploader\ImageUploaderInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Webmozart\Assert\Assert;
@@ -24,9 +25,11 @@ class SeoTranslationImagesUploadListener
     public function uploadMedia(GenericEvent $event): void
     {
         $subject = $event->getSubject();
-        Assert::isInstanceOf($subject, SeoInterface::class);
-        /** @var SeoTranslation $translation */
-        foreach ($subject->getSeo()->getTranslations() as $translation) {
+        Assert::isInstanceOf($subject, HasSeoInterface::class);
+        $seo = $subject->getSeo();
+        Assert::isInstanceOf($seo, SeoInterface::class);
+        /** @var SeoTranslationInterface $translation */
+        foreach ($seo->getTranslations() as $translation) {
             $image = $translation->getImage();
             if ($image instanceof SeoImageInterface) {
                 if ($image->hasFile()) {

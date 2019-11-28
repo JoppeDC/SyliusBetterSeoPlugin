@@ -4,21 +4,21 @@ declare(strict_types=1);
 
 namespace JoppeDc\SyliusBetterSeoPlugin\Entity\Traits;
 
-use JoppeDc\SyliusBetterSeoPlugin\Entity\Seo;
+use JoppeDc\SyliusBetterSeoPlugin\Entity\SeoInterface;
 
 trait SeoTrait
 {
     /**
-     * @var Seo|null
+     * @var SeoInterface|null
      */
     protected $seo;
 
-    public function getSeo(): ?Seo
+    public function getSeo(): ?SeoInterface
     {
         return $this->seo;
     }
 
-    public function setSeo(?Seo $seo): void
+    public function setSeo(?SeoInterface $seo): void
     {
         $this->seo = $seo;
     }
