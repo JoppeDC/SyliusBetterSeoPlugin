@@ -33,3 +33,9 @@ Don't forget to set your database credentials in the .env file.
     ```bash
     $ vendor/bin/ecs check src
     ```
+
+- PHPStan
+
+    ```bash
+    vendor/bin/phpstan analyse -c phpstan.neon -l max src/
+    ```
