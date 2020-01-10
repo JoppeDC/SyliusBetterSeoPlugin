@@ -7,47 +7,62 @@
     }
   };
 
-  {% set product = settings.product %}
-  {% if product.seo %}
-    {% set seo = product.seo %}
+  {% if settings.product is defined and settings.product.seo is defined %}
+    {% set seo = settings.product.seo %}
+    {% set original_resource = settings.product %}
+  {% endif %}
+  {% if settings.taxon is defined and settings.taxon.seo is defined %}
+    {% set original_resource = settings.taxon %}
+    {% set seo = settings.taxon.seo %}
+  {% endif %}
+
+    appendHtml(document.head, '<meta name="twitter:card" content="summary"></meta>');
+    appendHtml(document.head, '<meta name="og:type" content="website" />');
+
+  {% if seo is defined and seo is not null %}
+
+  {% if seo.image is not null %}
+    {% set source_image_path = seo.image.path %}
+    {% set original_image_path = source_image_path|imagine_filter('sylius_shop_seo_image') %}
+  {% endif %}
 
     {% if seo.pageTitle %}
       document.title = '{{ seo.pageTitle }}';
     {% endif %}
-
-    appendHtml(document.head, '<meta name="twitter:card" content="summary"></meta>');
     {% if seo.twitterSite is not empty %}
-      appendHtml(document.head, '<meta name="twitter:site" content="{{ seo.twitterSite }}" />');
+      appendHtml(document.head, '<meta name="twitter:site" content="{{ seo.twitterSite|e('js') }}" />');
     {% endif %}
     {% if seo.twitterTitle is not empty %}
-      appendHtml(document.head, '<meta name="twitter:title" content="{{ seo.twitterTitle }}" />');
+      appendHtml(document.head, '<meta name="twitter:title" content="{{ seo.twitterTitle|e('js') }}" />');
     {% else %}
-      appendHtml(document.head, '<meta name="twitter:title" content="{{ product.name }}" />');
+      appendHtml(document.head, '<meta name="twitter:title" content="{{ original_resource.name|e('js') }}" />');
     {% endif %}
     {% if seo.twitterDescription is not empty %}
-      appendHtml(document.head, '<meta name="twitter:description" content="{{ seo.twitterDescription }}" />');
+      appendHtml(document.head, '<meta name="twitter:description" content="{{ seo.twitterDescription|e('js') }}" />');
     {% else %}
-      appendHtml(document.head, '<meta name="twitter:description" content="{{ product.shortDescription }}" />');
+      appendHtml(document.head, '<meta name="twitter:description" content="{{ original_resource.description|e('js') }}" />');
     {% endif %}
-
-    appendHtml(document.head, '<meta name="og:type" content="website" />');
     {% if seo.ogTitle is not empty %}
-      appendHtml(document.head, '<meta name="og:title" content="{{ seo.ogTitle }}" />');
+      appendHtml(document.head, '<meta name="og:title" content="{{ seo.ogTitle|e('js') }}" />');
     {% else %}
-      appendHtml(document.head, '<meta name="og:title" content="{{ product.name }}" />');
+      appendHtml(document.head, '<meta name="og:title" content="{{ original_resource.name|e('js') }}" />');
     {% endif %}
     {% if seo.ogDescription is not empty %}
-      appendHtml(document.head, '<meta name="og:description" content="{{ seo.ogDescription }}" />');
+      appendHtml(document.head, '<meta name="og:description" content="{{ seo.ogDescription|e('js') }}" />');
+    {% else %}
+      appendHtml(document.head, '<meta name="og:description" content="{{ original_resource.description|e('js') }}" />');
     {% endif %}
-    {% if product.images.first %}
-      {% set source_image_path = product.images.first.path %}
-      {% set original_image_path = source_image_path|imagine_filter('sylius_shop_product_original') %}
+    {% if original_image_path is defined %}
       appendHtml(document.head, '<meta name="og:image" content="{{ original_image_path }}" />');
     {% endif %}
-
     {% if seo.extraTags is not empty %}
-      {{ seo.extraTags }}
+      appendHtml(document.head,'{{ seo.extraTags|e('js') }}');
     {% endif %}
+  {% else %}
+    appendHtml(document.head, '<meta name="twitter:title" content="{{ original_resource.name|e('js') }}" />');
+    appendHtml(document.head, '<meta name="twitter:description" content="{{ original_resource.description|e('js') }}" />');
+    appendHtml(document.head, '<meta name="og:title" content="{{ original_resource.name|e('js') }}" />');
+    appendHtml(document.head, '<meta name="og:description" content="{{ original_resource.description|e('js') }}" />');
   {% endif %}
 
 </script>

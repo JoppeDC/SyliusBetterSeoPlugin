@@ -26,3 +26,16 @@ Don't forget to set your database credentials in the .env file.
     $ (cd tests/Application && bin/console sylius:fixtures:load -e dev)
     $ (cd tests/Application && bin/console server:run -d public -e dev)
     ```
+
+### Testing
+- Easy Coding Standard
+
+    ```bash
+    $ vendor/bin/ecs check src
+    ```
+
+- PHPStan
+
+    ```bash
+    vendor/bin/phpstan analyse -c phpstan.neon -l max src/
+    ```

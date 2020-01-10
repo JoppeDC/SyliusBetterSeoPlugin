@@ -31,6 +31,13 @@
                           {{form_row(translationForm.twitterSite)}}
                         </div>
                       </div>
+                        {% import '@SyliusBetterSeoPlugin/Form/imagesWidget.html.twig' as image %}
+
+                      <div class="ui segment">
+                        <h3 class="ui dividing header">{{ 'sylius.ui.media'|trans }}</h3>
+                        <br>
+                          {{ image.imageWidget(translationForm.image) }}
+                      </div>
                     </div>
                 </div>
             </div>

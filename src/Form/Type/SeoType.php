@@ -20,6 +20,6 @@ class SeoType extends AbstractResourceType
 
     public function getBlockPrefix(): string
     {
-        return 'joppedc_product_seo';
+        return 'joppedc_seo';
     }
 }

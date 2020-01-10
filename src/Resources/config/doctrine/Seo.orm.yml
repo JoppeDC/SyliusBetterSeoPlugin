@@ -1,6 +1,6 @@
-JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeo:
+JoppeDc\SyliusBetterSeoPlugin\Entity\Seo:
     type: entity
-    table: joppedc_product_seo
+    table: joppedc_seo
     id:
         id:
             type: integer

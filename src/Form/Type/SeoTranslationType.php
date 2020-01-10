@@ -54,10 +54,15 @@ class SeoTranslationType extends AbstractResourceType
             'label' => 'app.ui.extra_tags',
             'required' => false,
         ]);
+
+        $builder->add('image', SeoImageType::class, [
+            'label' => false,
+            'required' => false,
+        ]);
     }
 
     public function getBlockPrefix(): string
     {
-        return 'joppedc_product_seo_translation';
+        return 'joppedc_seo_translation';
     }
 }

@@ -4,13 +4,28 @@ sylius_product:
             classes:
                 model: JoppeDc\SyliusBetterSeoPlugin\Entity\Product
 
+sylius_taxonomy:
+    resources:
+        taxon:
+            classes:
+                model: JoppeDc\SyliusBetterSeoPlugin\Entity\Taxon
 
 sylius_resource:
     resources:
         sylius_better_seo_plugin.seo:
             driver: doctrine/orm
             classes:
-                model: JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeo
+                model: JoppeDc\SyliusBetterSeoPlugin\Entity\Seo
             translation:
                 classes:
-                    model: JoppeDc\SyliusBetterSeoPlugin\Entity\ProductSeoTranslation
+                    model: JoppeDc\SyliusBetterSeoPlugin\Entity\SeoTranslation
+        sylius_better_seo_plugin.seo_image:
+            classes:
+                model: JoppeDc\SyliusBetterSeoPlugin\Entity\SeoImage
+                form: JoppeDc\SyliusBetterSeoPlugin\Form\Type\SeoImageType
+
+liip_imagine:
+    filter_sets:
+        sylius_shop_seo_image:
+            filters:
+                thumbnail: { size: [1200, 630], mode: outbound }

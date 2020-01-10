@@ -10,7 +10,11 @@
 <h1 align="center">Sylius Better SEO Plugin</h1>
     
 <p align="center">
-  Adding customizable SEO meta tags and Google structured data to product pages.
+
+  - Adds configurable SEO meta tags, image and Google rich snippets to product pages.
+  
+  - Adds configurable SEO meta tags and image to taxon pages.
+  
 </p>
 
 ## Installation 
@@ -34,14 +38,21 @@
        new \JoppeDc\SyliusBetterSeoPlugin\SyliusBetterSeoPlugin(),
     ];
     ```
-    
-3. (optional) Load resource override (if you don't have this done in your project yet):
+   
+3. Finish the installation by updating the database schema
+
+    ```
+    $ bin/console doctrine:migrations:diff
+    $ bin/console doctrine:migrations:migrate
+    ```
+
+4. (optional) Load resource override (if you don't have this done in your project yet):
 
     ```yaml
     - { resource: "@SyliusBetterSeoPlugin/Resources/config/resources.yaml" }
     ```
 
-    If you are already overriding the Product resource, you can use the included trait.
+    If you are already overriding the Product or Taxon resource, you can use the included trait.
 
 ## Examples
 
