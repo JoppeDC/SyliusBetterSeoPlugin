@@ -13,15 +13,3 @@ parameters:
 sylius_shop:
     product_grid:
         include_all_descendants: true
-
-sylius_product:
-    resources:
-        product:
-            classes:
-                model: \Tests\JoppeDc\SyliusBetterSeoPlugin\Application\src\Entity\Product\Product
-
-sylius_taxonomy:
-    resources:
-        taxon:
-            classes:
-                model: \Tests\JoppeDc\SyliusBetterSeoPlugin\Application\src\Entity\Taxon\Taxon
