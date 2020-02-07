@@ -1,0 +1,9 @@
+JoppeDc\SyliusBetterSeoPlugin\Entity\Traits\SeoTrait:
+  type: mapped_superclass
+  oneToOne:
+    seo:
+      targetEntity: Seo
+      joinColumn:
+        name: seo_id
+        referencedColumnName: id
+      cascade: [ all ]
