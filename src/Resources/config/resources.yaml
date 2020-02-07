@@ -1,15 +1,3 @@
-sylius_product:
-    resources:
-        product:
-            classes:
-                model: JoppeDc\SyliusBetterSeoPlugin\Entity\Product
-
-sylius_taxonomy:
-    resources:
-        taxon:
-            classes:
-                model: JoppeDc\SyliusBetterSeoPlugin\Entity\Taxon
-
 sylius_resource:
     resources:
         sylius_better_seo_plugin.seo:
