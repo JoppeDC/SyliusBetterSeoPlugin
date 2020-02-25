@@ -1,0 +1,14 @@
+imports:
+    - { resource: "@SyliusBetterSeoPlugin/Resources/config/config.yaml" }
+
+sylius_product:
+    resources:
+        product:
+            classes:
+                model: Tests\JoppeDc\SyliusBetterSeoPlugin\Application\Entity\Product
+
+sylius_taxonomy:
+    resources:
+        taxon:
+            classes:
+                model: Tests\JoppeDc\SyliusBetterSeoPlugin\Application\Entity\Taxon

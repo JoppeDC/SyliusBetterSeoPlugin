@@ -12,3 +12,12 @@ doctrine:
         charset: UTF8
 
         url: '%env(resolve:DATABASE_URL)%'
+
+    orm:
+        mappings:
+            App:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/Entity'
+                prefix: 'Tests\JoppeDc\SyliusBetterSeoPlugin\Application\Entity'
+                alias: App

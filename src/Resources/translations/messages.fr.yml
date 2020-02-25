@@ -1,0 +1,12 @@
+app:
+    ui:
+        page_title: Titre de la page
+        seo: SEO
+        twitter_description: Description Twitter
+        twitter_title: Titre Twitter
+        twitter_site: Site Twitter
+        og_url: Url Open Graph
+        og_description: Description Open Graph
+        og_title: Titre Open Graph
+        extra_tags: Extra tags
+
