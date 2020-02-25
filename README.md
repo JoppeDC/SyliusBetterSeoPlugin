@@ -39,20 +39,39 @@
     ];
     ```
    
-3. Finish the installation by updating the database schema
+
+3. Import resources:
+
+    ```yaml
+    imports:
+        - { resource: "@SyliusBetterSeoPlugin/Resources/config/config.yaml" }
+    ```
+
+4. Override Product and Taxon resource:
+
+    You need to add `HasSeoInterface` and add `SeoTrait` to Product and Taxon entity.
+
+    ```yaml
+    sylius_product:
+        resources:
+            product:
+                classes:
+                    model: App\Entity\Product
+    
+    sylius_taxonomy:
+        resources:
+            taxon:
+                classes:
+                    model: App\Entity\Taxon
+    ```
+   
+5. Finish the installation by updating the database schema
 
     ```
     $ bin/console doctrine:migrations:diff
     $ bin/console doctrine:migrations:migrate
     ```
 
-4. (optional) Load resource override (if you don't have this done in your project yet):
-
-    ```yaml
-    - { resource: "@SyliusBetterSeoPlugin/Resources/config/resources.yaml" }
-    ```
-
-    If you are already overriding the Product or Taxon resource, you can use the included trait.
 
 ## Examples
 

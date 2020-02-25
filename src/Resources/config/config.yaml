@@ -1,0 +1,3 @@
+imports:
+    - { resource: "@SyliusBetterSeoPlugin/Resources/config/services.yaml" }
+    - { resource: "@SyliusBetterSeoPlugin/Resources/config/resources.yaml" }
