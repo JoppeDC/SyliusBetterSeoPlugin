@@ -1,10 +1,5 @@
 {% set product = settings.product %}
-{% set reviews = [] %}
-{% for review in product.reviews %}
-  {% if review.status == constant('Sylius\\Component\\Review\\Model\\ReviewInterface::STATUS_ACCEPTED') %}
-    {% set reviews = reviews|merge([review]) %}
-  {% endif %}
-{% endfor %}
+{% set reviews = product.acceptedReviews %}
 
 {% if reviews is not empty %}
   {% set minReview = reviews | first.rating %}
