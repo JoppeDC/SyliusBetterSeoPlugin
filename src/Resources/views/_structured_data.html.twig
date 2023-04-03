@@ -33,6 +33,7 @@
   {
     "@context": "http://schema.org",
     "@type": "Product",
+    "sku": "{{ product.code }}",
     {% if reviews is not empty %}
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -69,6 +70,7 @@
       "offerCount": "{{ product.variants | length }}",
       "priceCurrency": "{{ sylius.channel.baseCurrency.code }}"
     },
+    "mpn": "{{ product.code }}",
     "url": "{{ app.request.uri }}"
   }
 </script>
