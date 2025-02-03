@@ -1,0 +1,12 @@
+seo:
+    ui:
+        page_title: Puslapio pavadinimas
+        seo: SEO
+        twitter_description: Twitter aprašymas
+        twitter_title: Twitter Pavadinimas
+        twitter_site: Twitter Svetainė
+        og_url: OG Url
+        og_description: OG aprašymas
+        og_title: OG Pavadinimas
+        extra_tags: Papildomos neapdorotos metažymos
+        translations: SEO vertimai

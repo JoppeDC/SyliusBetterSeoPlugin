@@ -1,4 +1,4 @@
-app:
+seo:
     ui:
         page_title: Page Title
         seo: SEO
@@ -9,3 +9,4 @@ app:
         og_description: OG Description
         og_title: OG Title
         extra_tags: Extra Raw Meta Tags
+        translations: SEO translations

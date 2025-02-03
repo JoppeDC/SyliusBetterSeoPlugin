@@ -7,13 +7,13 @@
     }
   };
 
-  {% if settings.product is defined and settings.product.seo is defined %}
-    {% set seo = settings.product.seo %}
-    {% set original_resource = settings.product %}
+  {% if hookable_metadata.context.product is defined and hookable_metadata.context.product.seo is defined %}
+    {% set seo = hookable_metadata.context.product.seo %}
+    {% set original_resource = hookable_metadata.context.product %}
   {% endif %}
-  {% if settings.taxon is defined and settings.taxon.seo is defined %}
-    {% set original_resource = settings.taxon %}
-    {% set seo = settings.taxon.seo %}
+  {% if hookable_metadata.context.taxon is defined and hookable_metadata.context.taxon.seo is defined %}
+    {% set original_resource = hookable_metadata.context.taxon %}
+    {% set seo = hookable_metadata.context.taxon.seo %}
   {% endif %}
 
     appendHtml(document.head, '<meta name="twitter:card" content="summary"></meta>');
@@ -25,7 +25,6 @@
     {% set source_image_path = seo.image.path %}
     {% set original_image_path = source_image_path|imagine_filter('sylius_shop_seo_image') %}
   {% endif %}
-
     {% if seo.pageTitle %}
       document.title = '{{ seo.pageTitle }}';
     {% endif %}

@@ -1,0 +1,28 @@
+{% if form is not defined %}
+    {% set form = hookable_metadata.context.form %}
+{% endif %}
+
+{% import '@SyliusAdmin/shared/helper/translations.html.twig' as translations %}
+
+{% form_theme form '@SyliusBetterSeoPlugin/Form/imagesWidget.html.twig' %}
+
+{% set translationForm = form.seo.translations %}
+
+<div class="col">
+    {{ form_errors(form) }}
+
+    <div class="row">
+        <div class="tab-pane {% if hookable_metadata.configuration.active|default(false) %}show active{% endif %}" id="taxon-seo-translations" role="tabpanel" tabindex="0">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        {{ 'seo.ui.seo'|trans }}
+                    </h2>
+                </div>
+                <div>
+                    {{ translations.default(translationForm, null, {accordion_id: 'taxon-seo-translations', accordion_flush: true}) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

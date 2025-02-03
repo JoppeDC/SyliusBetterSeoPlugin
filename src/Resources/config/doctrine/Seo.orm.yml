@@ -1,5 +1,5 @@
 JoppeDc\SyliusBetterSeoPlugin\Entity\Seo:
-    type: entity
+    type: mappedSuperclass
     table: joppedc_seo
     id:
         id:

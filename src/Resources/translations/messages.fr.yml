@@ -1,4 +1,4 @@
-app:
+seo:
     ui:
         page_title: Titre de la page
         seo: SEO
@@ -9,4 +9,4 @@ app:
         og_description: Description Open Graph
         og_title: Titre Open Graph
         extra_tags: Extra tags
-
+        translations: Traductions SEO

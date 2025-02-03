@@ -1,0 +1,16 @@
+{% set form = hookable_metadata.context.form %}
+
+{% import '@SyliusAdmin/shared/helper/translations.html.twig' as translations %}
+
+{% form_theme form '@SyliusBetterSeoPlugin/Form/imagesWidget.html.twig' %}
+
+{% set translationForm = form.seo.translations %}
+
+<div
+    {{ sylius_test_html_attribute('seo') }}
+    {{ sylius_test_html_attribute('seo-subforms') }}
+>
+    <div class="tab-pane {% if hookable_metadata.configuration.active|default(false) %}show active{% endif %}" id="product-seo-translations" role="tabpanel" tabindex="0">
+        {{ translations.default(translationForm, null, {accordion_id: 'seo-translations', accordion_flush: true}) }}
+    </div>
+</div>

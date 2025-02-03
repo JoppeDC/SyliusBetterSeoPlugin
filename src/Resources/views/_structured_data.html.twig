@@ -1,4 +1,4 @@
-{% set product = settings.product %}
+{% set product = hookable_metadata.context.product %}
 {% set reviews = product.acceptedReviews %}
 
 {% if reviews is not empty %}

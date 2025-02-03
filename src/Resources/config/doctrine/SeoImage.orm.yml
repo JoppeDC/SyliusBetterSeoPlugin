@@ -1,9 +1,9 @@
 JoppeDc\SyliusBetterSeoPlugin\Entity\SeoImage:
-    type: entity
+    type: mappedSuperclass
     table: joppedc_seo_image
     oneToOne:
         owner:
-            targetEntity: JoppeDc\SyliusBetterSeoPlugin\Entity\SeoTranslation
+            targetEntity: JoppeDc\SyliusBetterSeoPlugin\Entity\SeoTranslationInterface
             inversedBy: image
             cascade: [ALL]
             joinColumn:

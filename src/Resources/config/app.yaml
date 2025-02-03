@@ -1,0 +1,6 @@
+doctrine:
+    orm:
+        resolve_target_entities:
+            JoppeDc\SyliusBetterSeoPlugin\Entity\SeoInterface: JoppeDc\SyliusBetterSeoPlugin\Entity\Seo
+            JoppeDc\SyliusBetterSeoPlugin\Entity\SeoTranslationInterface: JoppeDc\SyliusBetterSeoPlugin\Entity\SeoTranslation
+            JoppeDc\SyliusBetterSeoPlugin\Entity\SeoImageInterface: JoppeDc\SyliusBetterSeoPlugin\Entity\Seo\SeoImage

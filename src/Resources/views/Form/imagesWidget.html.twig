@@ -1,15 +1,15 @@
-{% macro imageWidget(form) %}
-    <div class="ui upload box segment">
+{% extends '@SyliusAdmin/shared/form_theme.html.twig' %}
+
+{% block joppedc_sylius_better_seo_image_row %}
+    <div class="mb-3 field">
         {{ form_row(form.type) }}
-        <label for="{{ form.file.vars.id }}" class="ui icon labeled button"><i class="cloud upload icon"></i> {{ 'sylius.ui.choose_file'|trans }}</label>
-        {% if form.vars.value.path|default(null) is not null %}
-            <img class="ui small bordered image" src="{{ form.vars.value.path|imagine_filter('sylius_small') }}" alt="{{ form.vars.value.type }}" />
-        {% endif %}
-        <div class="ui hidden element">
-            {{ form_widget(form.file) }}
-        </div>
-        <div class="ui element">
-            {{- form_errors(form.file) -}}
-        </div>
     </div>
-{% endmacro %}
+    <div class="mb-3 field">
+        {{ form_label(form.file) }}
+        {% set isImageExists = form.vars.value.path|default(null) |default(null) is not null ? true : false %}
+        {% if isImageExists %}
+            <span class="avatar avatar-xl" style="background-image: url('{{ form.vars.value.path|default(null) |imagine_filter('sylius_small') }}')"></span>
+        {% endif %}
+        {{ form_widget(form.file) }}
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+sylius_twig_hooks:
+    hooks:
+        'sylius_admin.product.update.content.form.side_navigation':
+            seo:
+                template: '@SyliusBetterSeoPlugin/Admin/Product/Sidebar/seo.html.twig'
+        
+        'sylius_admin.product.update.content.form.sections':
+            seo:
+                template: '@SyliusBetterSeoPlugin/Admin/Product/Section/seo.html.twig'
+
+        'sylius_admin.product.update.content.form.sections.seo':
+            seo_form:
+                template: '@SyliusBetterSeoPlugin/Admin/Product/Section/seo_form.html.twig'
+                
+        'sylius_admin.taxon.create.content.sections.form':
+            seo:
+                template: '@SyliusBetterSeoPlugin/Admin/Taxon/seo.html.twig'
+                priority: -100
+        
+        'sylius_admin.taxon.update.content.sections.form':
+            seo:
+                template: '@SyliusBetterSeoPlugin/Admin/Taxon/seo.html.twig'
+                priority: -100
+                
+        'sylius_shop.product.show':
+            seo:
+                template: '@SyliusBetterSeoPlugin/_seo_block.html.twig'
+                priority: 100
+            structured_data:
+                template: '@SyliusBetterSeoPlugin/_structured_data.html.twig'
+                priority: 100
+                
+        'sylius_shop.product.index.content.body.main.header':
+            seo:
+                template: '@SyliusBetterSeoPlugin/_seo_block.html.twig'
+                priority: 400

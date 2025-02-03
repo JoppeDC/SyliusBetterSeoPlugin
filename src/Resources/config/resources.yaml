@@ -4,12 +4,15 @@ sylius_resource:
             driver: doctrine/orm
             classes:
                 model: JoppeDc\SyliusBetterSeoPlugin\Entity\Seo
+                interface: JoppeDc\SyliusBetterSeoPlugin\Entity\SeoInterface
             translation:
                 classes:
                     model: JoppeDc\SyliusBetterSeoPlugin\Entity\SeoTranslation
+                    interface: JoppeDc\SyliusBetterSeoPlugin\Entity\SeoTranslationInterface
         sylius_better_seo_plugin.seo_image:
             classes:
                 model: JoppeDc\SyliusBetterSeoPlugin\Entity\SeoImage
+                interface: JoppeDc\SyliusBetterSeoPlugin\Entity\SeoImageInterface
                 form: JoppeDc\SyliusBetterSeoPlugin\Form\Type\SeoImageType
 
 liip_imagine:

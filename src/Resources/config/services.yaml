@@ -9,70 +9,26 @@ services:
         tags:
             - { name: form.type_extension, extended_type: Sylius\Bundle\TaxonomyBundle\Form\Type\TaxonType, priority: -5 }
 
-    joppedc_sylius_better_seo_plugin.listener.admin.product.form.menu_builder:
-        class: JoppeDc\SyliusBetterSeoPlugin\Menu\AdminProductFormMenuListener
-        tags:
-            - { name: kernel.event_listener, event: sylius.menu.admin.product.form, method: addItems }
-
     joppedc_sylius_better_seo_plugin.seo.form.type:
         class: JoppeDc\SyliusBetterSeoPlugin\Form\Type\SeoType
+        arguments:
+            $dataClass: '%sylius_better_seo_plugin.model.seo.class%'
         tags:
             - { name: form.type }
-        arguments: ['JoppeDc\SyliusBetterSeoPlugin\Entity\Seo']
 
     joppedc_sylius_better_seo_plugin.seo_translation.form.type:
         class: JoppeDc\SyliusBetterSeoPlugin\Form\Type\SeoTranslationType
+        arguments:
+            $dataClass: '%sylius_better_seo_plugin.model.seo_translation.class%'
         tags:
             - { name: form.type }
-        arguments: ['JoppeDc\SyliusBetterSeoPlugin\Entity\SeoTranslation']
 
     joppedc_sylius_better_seo_plugin.seo_image.type.form.type:
         class: JoppeDc\SyliusBetterSeoPlugin\Form\Type\SeoImageType
+        arguments:
+            $dataClass: '%sylius_better_seo_plugin.model.seo_image.class%'
         tags:
             - { name: form.type }
-        arguments: ['JoppeDc\SyliusBetterSeoPlugin\Entity\SeoImage']
-
-    joppedc_sylius_better_seo_plugin.block_event_listener.product.show.head:
-        class: Sylius\Bundle\UiBundle\Block\BlockEventListener
-        arguments:
-            - '@@SyliusBetterSeoPlugin/_seo_block.html.twig'
-        tags:
-            - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.product.show.before_images, method: onBlockEvent }
-
-    joppedc_sylius_better_seo_plugin.block_event_listener.product.index.head:
-        class: Sylius\Bundle\UiBundle\Block\BlockEventListener
-        arguments:
-            - '@@SyliusBetterSeoPlugin/_seo_block.html.twig'
-        tags:
-            - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.taxon.header.before, method: onBlockEvent }
-
-    joppedc_sylius_better_seo_plugin.block_event_listener.productpage.layout.structured_data:
-        class: Sylius\Bundle\UiBundle\Block\BlockEventListener
-        arguments:
-            - '@@SyliusBetterSeoPlugin/_structured_data.html.twig'
-        tags:
-            - { name: kernel.event_listener, event: sonata.block.event.sylius.shop.product.show.before_images, method: onBlockEvent }
-
-    joppedc_sylius_better_seo_plugin.block_event_listener.admin.taxon.seo.update:
-        class: Sylius\Bundle\UiBundle\Block\BlockEventListener
-        arguments:
-            - '@@SyliusBetterSeoPlugin/Admin/Taxon/_seo_form.html.twig'
-        tags:
-            - { name: kernel.event_listener, event: sonata.block.event.sylius.admin.taxon.update.form, method: onBlockEvent }
-
-    joppedc_sylius_better_seo_plugin.block_event_listener.admin.taxon.seo.create:
-        class: Sylius\Bundle\UiBundle\Block\BlockEventListener
-        arguments:
-            - '@@SyliusBetterSeoPlugin/Admin/Taxon/_seo_form.html.twig'
-        tags:
-            - { name: kernel.event_listener, event: sonata.block.event.sylius.admin.taxon.create.form, method: onBlockEvent }
-
-    joppedc_sylius_better_seo_plugin.block_event_listener.admin.seo.javascript:
-        class: Sylius\Bundle\UiBundle\Block\BlockEventListener
-        arguments:
-            - '@@SyliusBetterSeoPlugin/_javascript.html.twig'
-        tags:
-            - { name: kernel.event_listener, event: sonata.block.event.sylius.admin.layout.javascripts, method: onBlockEvent }
 
     joppedc_sylius_better_seo_plugin.listener.images_upload:
         class: JoppeDc\SyliusBetterSeoPlugin\EventListener\SeoTranslationImagesUploadListener

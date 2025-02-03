@@ -15,43 +15,43 @@ class SeoTranslationType extends AbstractResourceType
     {
         $builder->add('pageTitle', TextType::class, [
             'empty_data' => '',
-            'label' => 'app.ui.page_title',
+            'label' => 'seo.ui.page_title',
             'required' => false,
         ]);
 
         $builder->add('ogTitle', TextType::class, [
             'empty_data' => '',
-            'label' => 'app.ui.og_title',
+            'label' => 'seo.ui.og_title',
             'required' => false,
         ]);
 
         $builder->add('ogDescription', TextareaType::class, [
             'empty_data' => '',
-            'label' => 'app.ui.og_description',
+            'label' => 'seo.ui.og_description',
             'required' => false,
         ]);
 
         $builder->add('twitterTitle', TextType::class, [
             'empty_data' => '',
-            'label' => 'app.ui.twitter_title',
+            'label' => 'seo.ui.twitter_title',
             'required' => false,
         ]);
 
         $builder->add('twitterDescription', TextareaType::class, [
             'empty_data' => '',
-            'label' => 'app.ui.twitter_description',
+            'label' => 'seo.ui.twitter_description',
             'required' => false,
         ]);
 
         $builder->add('twitterSite', TextType::class, [
             'empty_data' => '',
-            'label' => 'app.ui.twitter_site',
+            'label' => 'seo.ui.twitter_site',
             'required' => false,
         ]);
 
         $builder->add('extraTags', TextareaType::class, [
             'empty_data' => '',
-            'label' => 'app.ui.extra_tags',
+            'label' => 'seo.ui.extra_tags',
             'required' => false,
         ]);
 
